@@ -11,7 +11,7 @@ function Navbar(props){
                 <IconContext.Provider value={{ color: 'yellow' }}>
                 <CaminoArrow className="navbar-icon" />
                 </IconContext.Provider>
-                <p className='nav-title'>Camino Francés</p>
+                <p className='nav-title'>Camino App</p>
                 <ul className='nav-menu'>
                     <li className='nav-item'>
                         <Link to="/allstages" className="nav-link">All Stages</Link>

@@ -12,6 +12,7 @@ import AboutUs from './pages/AboutUs';
 import Background from './pages/Background'
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
     </div>
+    <Footer />
     </>
   );
 }
