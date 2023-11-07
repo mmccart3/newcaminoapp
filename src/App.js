@@ -1,5 +1,6 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home'
@@ -12,9 +13,29 @@ import Background from './pages/Background'
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Footer from './components/Footer';
+import { getStageData } from "./utils/getStageData";
+import { getStageDetails } from './utils/getStageDetails';
 
 
 function App() {
+  const [user, setUser] = useState();
+  const [locationData, setLocationData] = useState();
+  const [stageData,setStageData] = useState([])
+  const [stageDetails,setStageDetails] = useState([])
+  const [locationID,setLocationID] =useState(0);
+  const [previousStage,setPreviousStage] =useState(0);
+  const [stageID,setStageID] = useState (1);
+  const [isLoadingStageData, setIsLoadingStageData] = useState(false);
+  const [priorStage,setPriorStage] =useState(1);
+  const [nextStage,setNextStage] =useState(2);
+
+useEffect (()=>{
+  setIsLoadingStageData(true);
+  getStageData(setStageData).then((data) => {
+  setIsLoadingStageData(false);
+  getStageDetails(setStageDetails,stageDetails);
+  }
+  )},[])
   return (
     <>
     <BrowserRouter>
@@ -27,7 +48,12 @@ function App() {
           />
           <Route 
             exact path="/stages"
-            element={<Stages />}
+            element={<Stages
+               priorStage={priorStage} nextStage={nextStage} setPriorStage={setPriorStage} 
+               setNextStage={setNextStage} stageData={stageData}
+               stageID={stageID} setStageID={setStageID} setStageData={setStageData}
+               setStageDetails={setStageDetails} stageDetails={stageDetails}
+               />}
           />
           <Route 
             exact path="/locations"

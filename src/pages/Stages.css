@@ -1,0 +1,79 @@
+header {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* height: 90px */
+}
+
+.arrowIcon {
+    display: flex;
+    align-content: center;
+    margin-top: 0px;
+    font-size: 3vw;
+    padding-bottom: 0px;
+}
+
+.iconBox {
+    height: 200px;
+    /* border: solid 2px red; */
+}
+
+.infoIcon {
+    transform: scale(6.5);
+    color: #282c34;
+    margin-top: 86px;
+    margin-left: 70px;
+}
+
+hr {
+    width: 94%;
+    margin-left:3%;
+    margin-right: 3%;
+
+}
+
+#elevationImage {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.stageDetails {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.stageInfoBox {
+    display:flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #d1d1d1;
+    width: 350px;
+    height: 250px;
+    border-radius: 15%;
+}
+
+.titleInInfoBox {
+    font-size: 1.2vw;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.stageDataBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.infoDetailBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 180px;
+}
+
+.infoDetail {
+    font-size: 1.5vw;
+}

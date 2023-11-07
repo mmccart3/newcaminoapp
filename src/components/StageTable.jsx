@@ -14,9 +14,11 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
     backgroundColor: '#282c34',
     color: '#cee7fd',
+    fontSize: '1.3vw'
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
+    fontSize: '1.2vw',
+    width:'auto'
   },
 }));
 
@@ -33,26 +35,29 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 
-const rows = [
-  createData('Roncesvalles', 'Saint Jean Pied de Port', 24.2, 15, '8hr 8min'),
-  createData('Saint Jean Pied de Port', 'Huntto', 5.3, 3.3, "1hr 51min"),
-  createData('Huntto', 'Orisson', 2.4, 1.5, '1hr 0min'),
-  createData('Orisson', "Virgen d'Orisson", 3.8, 2.4, '1hr 24min'),
-  createData("Virgen d'Orisson", 'Refreshments Van', 3.4, 2.1, "1hr 6min"),
-  createData('Refreshments Van', "Roland's Fountain", 1.8, 1.1, "0hr 38min"),
-  createData("Roland's Fountain", 'Izandorre Shelter', 2.5, 1.5, "0hr 49min"),
-  createData('Izandorre Shelter',"Col Lepeoder", 1.7, 1, "0hr 36min"),
-  createData("Col Lepeoder", 'Roncesvalles', 4.1, 2.5, "1hr 16min"),
-];
 
-function StageTable() {
+function StageTable({stageData}) {
+  function populateTableData() {
+  const rows = [];
+  for (const x in stageData) {
+    const from = stageData[x].from;
+    const to = stageData[x].to;
+    const kmDistance = Math.round(stageData[x].distanceFromPriorLocationInMetres / 100)/10;
+    const mileDistance = Math.round(stageData[x].distanceFromPriorLocationInMetres / 160.9)/10;
+    const hours = Math.floor(stageData[x].timeFromPriorLocationInMinutes/60);
+    const minutes = stageData[x].timeFromPriorLocationInMinutes -(hours*60);
+    const duration = hours+"hr "+minutes+"min";
+    const y = {from, to, kmDistance, mileDistance, duration};
+
+    rows.push(y);
+  } return rows;
+  }
+ const rows = populateTableData()
+
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 400 }} stickyHeader aria-label="customized table">
+    <TableContainer component={Paper} >
+      <Table sx={{ minWidth: 400, marginTop:3}} stickyHeader aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>From</StyledTableCell>
@@ -64,14 +69,14 @@ function StageTable() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+            <StyledTableRow key={row.from}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {row.from}
               </StyledTableCell>
-              <StyledTableCell align="center">{row.calories}</StyledTableCell>
-              <StyledTableCell align="center">{row.fat}</StyledTableCell>
-              <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="center">{row.protein}</StyledTableCell>
+              <StyledTableCell align="center">{row.to}</StyledTableCell>
+              <StyledTableCell align="center">{row.kmDistance}</StyledTableCell>
+              <StyledTableCell align="center">{row.mileDistance}</StyledTableCell>
+              <StyledTableCell align="center">{row.duration}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
