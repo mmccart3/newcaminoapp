@@ -13,16 +13,57 @@ header {
     padding-bottom: 0px;
 }
 
+
+.stageName {
+    width: 60vw;
+}
+
 .iconBox {
     height: 200px;
-    /* border: solid 2px red; */
 }
 
 .infoIcon {
-    transform: scale(6.5);
+    transform: scale(6);
     color: #282c34;
-    margin-top: 86px;
-    margin-left: 70px;
+    margin-top: 3.5vw;
+    margin-left: 3vw;
+}
+
+
+@media screen and (max-width: 1900px) 
+and (min-width: 1600px) {
+    .infoIcon {
+        transform: scale(4);
+        margin-top: 2.8vW;
+        margin-left: 2.8vw;
+    }
+}
+
+@media screen and (max-width: 1599px) 
+and (min-width: 1000px) {
+    .infoIcon {
+        transform: scale(2.8);
+        margin-top: 2.4vW;
+        margin-left: 2.4vw;
+    }
+}
+
+@media screen and (max-width: 999px) 
+and (min-width: 700px) {
+    .infoIcon {
+        transform: scale(2);
+        margin-top: 1.9vW;
+        margin-left: 1.9vw;
+    }
+}
+
+@media screen and (max-width: 699px) 
+ {
+    .infoIcon {
+        transform: scale(1);
+        margin-top: 1.5vw;
+        margin-left: 1.5vw;
+    }
 }
 
 hr {
@@ -50,8 +91,8 @@ hr {
     flex-direction: column;
     box-sizing: border-box;
     background-color: #d1d1d1;
-    width: 350px;
-    height: 250px;
+    width: 15vw;
+    height: 11vw;
     border-radius: 15%;
 }
 
@@ -66,12 +107,13 @@ hr {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    height: 80%;
 }
 .infoDetailBox {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 180px;
+    width: 10vw;
 }
 
 .infoDetail {

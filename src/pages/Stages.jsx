@@ -86,7 +86,7 @@ function Stages ({priorStage, nextStage, setPriorStage, setNextStage, stageData,
                 <IconButton onClick={backClickHandler}>
                     <CaminoReverseArrow className="arrowIcon"/>
                 </IconButton>
-                <h1>{stageName}</h1>
+                <h1 className="stageName">{stageName}</h1>
                 <IconButton onClick={forwardClickHandler}><CaminoArrow className="arrowIcon"/></IconButton>
             </header>
             <hr />
