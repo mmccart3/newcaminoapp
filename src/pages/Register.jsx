@@ -30,14 +30,15 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-function Register() {
+function Register(setFirstName) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const firstName = data.get('firstName')
+    const lastName = data.get('lastName')
     const email = data.get('email')
     const password = data.get('password')
-    console.log(email.password);
-    registerUser(email,password)
+    registerUser(email,password, firstName, lastName, setFirstName)
   };
 
   return (
@@ -119,7 +120,7 @@ function Register() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

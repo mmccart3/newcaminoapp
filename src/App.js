@@ -18,12 +18,11 @@ import { getStageDetails } from './utils/getStageDetails';
 
 
 function App() {
-  const [user, setUser] = useState();
+  const [firstName, setFirstName] = useState();
   const [locationData, setLocationData] = useState();
   const [stageData,setStageData] = useState([])
   const [stageDetails,setStageDetails] = useState([])
   const [locationID,setLocationID] =useState(0);
-  const [previousStage,setPreviousStage] =useState(0);
   const [stageID,setStageID] = useState (1);
   const [isLoadingStageData, setIsLoadingStageData] = useState(false);
   const [priorStage,setPriorStage] =useState(1);
@@ -77,11 +76,11 @@ useEffect (()=>{
           />
           <Route 
             exact path="/login"
-            element={<Login />}
+            element={<Login  setFirstName={setFirstName}/>}
           />
           <Route 
             exact path="/register"
-            element={<Register />}
+            element={<Register setFirstName={setFirstName}/>}
           />
         </Routes>
       </div>

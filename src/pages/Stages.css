@@ -2,7 +2,9 @@ header {
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
-    /* height: 90px */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .arrowIcon {
@@ -76,6 +78,7 @@ hr {
 #elevationImage {
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 95vw;
 }
 
 .stageDetails {

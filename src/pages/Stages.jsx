@@ -88,6 +88,7 @@ function Stages ({priorStage, nextStage, setPriorStage, setNextStage, stageData,
                 </IconButton>
                 <h1 className="stageName">{stageName}</h1>
                 <IconButton onClick={forwardClickHandler}><CaminoArrow className="arrowIcon"/></IconButton>
+                
             </header>
             <hr />
             <div className="stageDetails">

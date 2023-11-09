@@ -1,6 +1,6 @@
 import { writeCookie } from "../common/cookies";
 
-export const login = async (email, password) => {
+export const login = async (email, password, setFirstName) => {
     //   console.log(process.env.REACT_APP_BASE_URL);
     try {
       const response = await fetch(`${process.env.REACT_APP_REST_API}login`, {
@@ -18,6 +18,7 @@ export const login = async (email, password) => {
       const data = await response.json();
       console.log(data)
       writeCookie("jwt_token", data.token, 7);
+      setFirstName(data.user.firstName);
       return data.user;
     } catch (error) {
       console.log(error);
