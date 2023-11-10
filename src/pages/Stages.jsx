@@ -88,7 +88,7 @@ function Stages ({priorStage, nextStage, setPriorStage, setNextStage, stageData,
                 </IconButton>
                 <h1 className="stageName">{stageName}</h1>
                 <IconButton onClick={forwardClickHandler}><CaminoArrow className="arrowIcon"/></IconButton>
-                
+                 
             </header>
             <hr />
             <div className="stageDetails">
@@ -118,6 +118,7 @@ function Stages ({priorStage, nextStage, setPriorStage, setNextStage, stageData,
                         </div>  
                     </div>
                 </div>
+
                 <div className="stageInfoBox">
                     <p className="titleInInfoBox">GPS Start Location</p>
                     <hr></hr>
@@ -130,6 +131,7 @@ function Stages ({priorStage, nextStage, setPriorStage, setNextStage, stageData,
                             <p className="infoDetail">{longitude} </p>
                         </div>  
                     </div>
+
                 </div>
             </div>
             <hr/>

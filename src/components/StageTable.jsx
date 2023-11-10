@@ -14,10 +14,10 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
     backgroundColor: '#282c34',
     color: '#cee7fd',
-    fontSize: '1.3vw'
+    fontSize: '1.8vw'
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: '1.2vw',
+    fontSize: '1.7vw',
     width:'auto'
   },
 }));
