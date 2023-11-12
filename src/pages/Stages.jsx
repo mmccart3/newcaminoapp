@@ -1,16 +1,12 @@
 import React from "react";
-import { useState } from "react";
 import './Stages.css';
 import StageTable from "../components/StageTable";
 import { getStageData } from "../utils/getStageData";
-import Button from '@mui/material/Button';
 import { CaminoArrow } from '../images/icons/caminoArrow';
 import { CaminoReverseArrow } from '../images/icons/caminoReverseArrow';
-import { IconContext } from 'react-icons';
 import IconButton from "@mui/material/IconButton";
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import Hiking from '@mui/icons-material/Hiking';
-import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import { getStageDetails } from "../utils/getStageDetails";
 import { GpsFixed } from "@mui/icons-material";
 
@@ -54,12 +50,16 @@ function Stages ({priorStage, nextStage, setPriorStage, setNextStage, stageData,
     } else {
         stageDetailsInfo = stageDetails.filter(item => item.ID === stageID);
         elevationURL = stageDetailsInfo[0].stageElevationChartURL
+        var stageMap1024URL = stageDetailsInfo[0].stageMap1024URL
+        var stageMap1920URL = stageDetailsInfo[0].stageMap1920URL
         var kmDistance = Math.round(stageDetailsInfo[0].stageDistanceInMetres / 100)/10;
         var mileDistance = Math.round(stageDetailsInfo[0].stageDistanceInMetres / 160.9)/10;
         var hours = Math.floor(stageDetailsInfo[0].stageTimeInMinutes/60);
         var minutes = stageDetailsInfo[0].stageTimeInMinutes -(hours*60);
-        var longitude = stageDetailsInfo[0].longitude
-        var latitude = stageDetailsInfo[0].latitude
+        var startLongitude = stageDetailsInfo[0].startLongitude
+        var startLatitude = stageDetailsInfo[0].startLatitude
+        var finishLongitude = stageDetailsInfo[0].finishLongitude
+        var finishLatitude = stageDetailsInfo[0].finishLatitude
 
     }
 
@@ -118,22 +118,31 @@ function Stages ({priorStage, nextStage, setPriorStage, setNextStage, stageData,
                         </div>  
                     </div>
                 </div>
-
+                
                 <div className="stageInfoBox">
-                    <p className="titleInInfoBox">GPS Start Location</p>
+                    <p className="titleInInfoBox">GPS Locations</p>
                     <hr></hr>
                     <div className="stageDataBox">
                         <div  className="iconBox">
                         <GpsFixed className="infoIcon"/>
                         </div>  
                         <div className="infoDetailBox" >
-                            <p className="infoDetail">{latitude} </p>
-                            <p className="infoDetail">{longitude} </p>
+                            <p className="infosubH">Start</p>
+                                <a href={"https://www.google.com/maps/dir/?api=1&travelmode=walking&destination="+startLatitude+","+startLongitude} target="_blank">
+                                <p className="GPSinfoDetail">{startLatitude} {startLongitude} </p>
+                            </a>
+                            <p className="infosubH" >Finish</p>
+                                <a href={"https://www.google.com/maps/dir/?api=1&travelmode=walking&destination="+finishLatitude+","+finishLongitude} target="_blank">
+                                <p className="GPSinfoDetail">{finishLatitude} {finishLongitude} </p>
+                            </a>
                         </div>  
                     </div>
-
                 </div>
             </div>
+            <hr/>
+            <img src={stageMap1024URL} className="stageMap1024URL" alt="stage map"/>
+            <hr/>
+            <img src={stageMap1920URL} className="stageMap1920URL" alt="stage map"/>
             <hr/>
             <img src={elevationURL} id="elevationImage" alt="elevation profile"/>
             <hr/>

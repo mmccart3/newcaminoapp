@@ -39,7 +39,7 @@ function Login(setFirstName) {
     const email = data.get('email');
     const password = data.get('password')
     console.log(email, password)
-    login(email,password);
+    login(email,password,setFirstName);
   };
 
   return (
