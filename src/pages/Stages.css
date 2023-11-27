@@ -32,17 +32,24 @@ header {
     margin-top: 4vw;
     margin-left: 3vw;
 }
+.stageMap360URL {
+    display: none;
+}
+.stageMap640URL {
+    display: none;
+}
 .stageMap1024URL {
     display: none;
 }
-
-
+.stageMap1280URL {
+    display: none;
+}
 .stageMap1920URL {
     display: none;
 }
 
 @media screen and (max-width: 5000px) 
-and (min-width: 1600px) {
+and (min-width: 1920px) {
     .infoIcon {
         transform: scale(4);
         margin-top: 4vW;
@@ -50,11 +57,26 @@ and (min-width: 1600px) {
     }
     .stageMap1920URL {
         display:inline-block;
+        height:fit-content;
     }
 }
 
-@media screen and (max-width: 1599px) 
-and (min-width: 1000px) {
+
+@media screen and (max-width: 1919px) 
+and (min-width: 1280px) {
+    .infoIcon {
+        transform: scale(2.8);
+        margin-top: 3.3vW;
+        margin-left: 2.4vw;
+    }
+    .stageMap1280URL {
+        display:inline-block;
+    }
+}
+
+
+@media screen and (max-width: 1279px) 
+and (min-width: 1024px) {
     .infoIcon {
         transform: scale(2.8);
         margin-top: 3.3vW;
@@ -65,21 +87,28 @@ and (min-width: 1000px) {
     }
 }
 
-@media screen and (max-width: 999px) 
-and (min-width: 700px) {
+@media screen and (max-width: 1023px) 
+and (min-width: 640px) {
     .infoIcon {
         transform: scale(2);
         margin-top: 3.5vW;
         margin-left: 1.9vw;
     }
+    .stageMap640URL {
+        display:inline-block;
+    }
 }
 
-@media screen and (max-width: 699px) 
- {
+@media screen and (max-width: 639px) 
+and (min-width: 360px) 
+{
     .infoIcon {
-        transform: scale(1);
-        margin-top: 3.4vw;
+        transform: scale(0.8);
+        margin-top: 0.0vw;
         margin-left: 1.5vw;
+    }
+    .stageMap360URL {
+        display:inline-block;
     }
 }
 

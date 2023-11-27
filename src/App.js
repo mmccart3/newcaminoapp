@@ -15,6 +15,7 @@ import Register from './pages/Register';
 import Footer from './components/Footer';
 import { getStageData } from "./utils/getStageData";
 import { getStageDetails } from './utils/getStageDetails';
+import { getCoordsData } from './utils/getCoordsData';
 
 
 function App() {
@@ -27,12 +28,14 @@ function App() {
   const [isLoadingStageData, setIsLoadingStageData] = useState(false);
   const [priorStage,setPriorStage] =useState(1);
   const [nextStage,setNextStage] =useState(2);
+  const [coordsData, setCoordsData] = useState();
 
 useEffect (()=>{
   setIsLoadingStageData(true);
   getStageData(setStageData).then((data) => {
   setIsLoadingStageData(false);
   getStageDetails(setStageDetails,stageDetails);
+  getCoordsData(setCoordsData);
   }
   )},[])
   return (
@@ -49,9 +52,10 @@ useEffect (()=>{
             exact path="/stages"
             element={<Stages
                priorStage={priorStage} nextStage={nextStage} setPriorStage={setPriorStage} 
-               setNextStage={setNextStage} stageData={stageData}
+               setNextStage={setNextStage} stageData={stageData} coordsData={coordsData} setCoordsData={setCoordsData}
                stageID={stageID} setStageID={setStageID} setStageData={setStageData}
-               setStageDetails={setStageDetails} stageDetails={stageDetails}
+               setStageDetails={setStageDetails} stageDetails={stageDetails} 
+               setLocationID={setLocationID} locationID={locationID}
                />}
           />
           <Route 
