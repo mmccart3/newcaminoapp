@@ -130,12 +130,14 @@ function Stages({
     var stageDetailsInfo = stageDetails.filter(item => item.ID === stageID);
     if (typeof stageDetailsInfo[0] === "undefined") {
         var elevationURL = ""
+        console.log(elevationURL)
         getStageDetails(setStageDetails,stageDetails)
         kmDistance = 0;
         mileDistance = 0;
     } else {
         stageDetailsInfo = stageDetails.filter(item => item.ID === stageID);
         elevationURL = stageDetailsInfo[0].stageElevationChartURL
+        console.log(stageDetailsInfo[0])
         var stageMap360URL = stageDetailsInfo[0].stageMap360URL
         var stageMap640URL = stageDetailsInfo[0].stageMap640URL
         var stageMap1024URL = stageDetailsInfo[0].stageMap1024URL
@@ -152,6 +154,7 @@ function Stages({
 
     }
     console.log(stageMap1920URL)
+    console.log(elevationURL)
 
     if (typeof stageData.stageData2 === "undefined") {
         var savedStageID = JSON.parse(localStorage.getItem('stageID'));
